@@ -4,17 +4,17 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@using (Html.BeginForm("AdminBlogList", "Admin",
+@using (Html.BeginForm("AddBlog", "Admin",
     new { ReturnUrl = Request.QueryString["ReturnUrl"] },
     FormMethod.Post,
     new { @class = "form-signin" }
     ))
 {
 
-    
+
     <h2 class="form-signin-heading">Blog Oluştur</h2>
     <div class="form-group mb-3">
-                   
+       
         @Html.LabelFor(m => m.BlogTitle, "Blog Başlığı", new { @class = "control-label" })
         @Html.TextBoxFor(m => m.BlogTitle, new
         {
@@ -22,60 +22,64 @@
             placeholder = "Blog Başlığı",
             autofocus = ""
         })
-                    
 
+        @Html.ValidationMessageFor(m => m.BlogTitle, "", new { @class = "text-danger" })
     </div>
     <div class="form-group mb-3">
-                    
-        @Html.LabelFor(m=>m.CategoryId,"Katagori",new{@class="control-label"})
-        @Html.TextBoxFor(m=>m.CategoryId,new
-        {
-            @class="form-control",
-            placeholder="Katagori id",
-            autofocus=""
-        })
+
+        @Html.LabelFor(m => m.CategoryId, "Katagori", new { @class = "control-label" })
+        @Html.DropDownListFor(m => m.CategoryId, (List<SelectListItem>)ViewBag.categoryList, "Seçiniz", new { @class = "form-control" })
+
+
+
+
+        @Html.ValidationMessageFor(m => m.CategoryId, "", new { @class = "text-danger" })
     </div>
     <div class="form-group mb-3">
-                 
-        @Html.LabelFor(m=>m.BlogImage,"Resim Yolu",new{@class="control-label"})
-        @Html.TextBoxFor(m=>m.BlogImage,new
+
+        @Html.LabelFor(m => m.BlogImage, "Resim Yolu", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.BlogImage, new
         {
-            @class="form-control",
-            placeholder="Resim Yolu",
-            autofocus=""
+            @class = "form-control",
+            placeholder = "Resim Yolu",
+            autofocus = ""
         })
+        @Html.ValidationMessageFor(m => m.BlogImage, "", new { @class = "text-danger" })
     </div>
     <div class="form-group mb-3">
-             
-        @Html.LabelFor(m=>m.CreatedTime,"Tarih",new{@class="control-label"})
-        @Html.TextBoxFor(m=>m.CreatedTime,new
+
+        @Html.LabelFor(m => m.CreatedTime, "Tarih", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.CreatedTime, new
         {
-            @class="form-control",
-            placeholder="Tarih",
-            autofocus=""
+            @class = "form-control",
+            placeholder = "Tarih",
+            autofocus = ""
         })
+        @Html.ValidationMessageFor(m => m.CreatedTime, "", new { @class = "text-danger" })
     </div>
     <div class="form-group mb-3">
-          
-        @Html.LabelFor(m=>m.AuthorId,"Yazar id",new{@class="control-label"})
-        @Html.TextBoxFor(m=>m.AuthorId,new
+
+        @Html.LabelFor(m => m.AuthorId, "Yazar id", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.AuthorId, new
         {
-            @class="form-control",
-            placeholder="Yazar id",
-            autofocus=""
+            @class = "form-control",
+            placeholder = "Yazar id",
+            autofocus = ""
         })
+        @Html.ValidationMessageFor(m => m.AuthorId, "", new { @class = "text-danger" })
     </div>
     <div class="form-group mb-3">
-      
-        @Html.LabelFor(m=>m.BlogContent,"İçerik",new{@class="control-label"})
-        @Html.TextAreaFor(m=>m.BlogContent,5,20,new
+
+        @Html.LabelFor(m => m.BlogContent, "İçerik", new { @class = "control-label" })
+        @Html.TextAreaFor(m => m.BlogContent, 5, 20, new
         {
-            @class="form-control",
-            placeholder="İçerik",
-            autofocus=""
+            @class = "form-control",
+            placeholder = "İçerik",
+            autofocus = ""
         })
+        @Html.ValidationMessageFor(m => m.BlogContent, "", new { @class = "text-danger" })
     </div>
-    
+
     <button class="btn btn-lg btn-primary" type="submit">Ekle</button>
 
 }

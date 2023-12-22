@@ -97,6 +97,10 @@
     <Compile Include="Migrations\202312161214175_contactentity.designer.cs">
       <DependentUpon>202312161214175_contactentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312221544219_blogtable.cs" />
+    <Compile Include="Migrations\202312221544219_blogtable.designer.cs">
+      <DependentUpon>202312221544219_blogtable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -138,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312161214175_contactentity.resx">
       <DependentUpon>202312161214175_contactentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312221544219_blogtable.resx">
+      <DependentUpon>202312221544219_blogtable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
