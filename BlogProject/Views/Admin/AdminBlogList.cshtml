@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "AdminBlogList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Category</th>
+            <th scope="col">Date</th>
+            <th scope="col">Details</th>
+            <th scope="col">Comments</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Update</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.BlogId</th>
+                <td>@item.BlogTitle</td>
+                <td>@item.Category.CategoryName</td>
+                <td>@item.CreatedTime.ToShortDateString()</td>
+                <td><a href="/" class="btn btn-success">Details</a></td>
+                <td><a href="/" class="btn btn-dark">Comments</a></td>
+                <td><a href="/" class="btn"><i class="fas fa-trash" style="color: #e60f0f;"></i></a></td>
+                <td><a href="/" class="btn"><i class="fas fa-pen" style="color: #075ef2;"></i></a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <a href="@Url.Action("AddBlog","Admin")" class="btn btn-primary">Yeni Blog Ekle</a>
+</div>
+

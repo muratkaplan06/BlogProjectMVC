@@ -1,0 +1,35 @@
+﻿@model EntityLayer.Concrete.SubscribeMail
+<div class="site-section bg-lightx">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-5">
+                <div class="subscribe-1 ">
+                    <h2>Yeni Bloglar için Abone Olunuz</h2>
+                    <p class="mb-5">
+                        @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+                        {
+                            <span class="text-success">@ViewBag.SuccessMessage</span>
+                        }
+                        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                        {
+                            <span class="text-danger">@ViewBag.ErrorMessage</span>
+                        }
+                    </p>
+                    <p class="mb-5">Hemen email adresiniz ile kayıt olun yeni postlarımızdan haberdar olun</p>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <form method="post" class="p-5 bg-light">
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="EmailAdress" />
+                            @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+                        </div>
+
+                        <input type="submit" class="btn btn-primary" value="Yorum Gönder" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

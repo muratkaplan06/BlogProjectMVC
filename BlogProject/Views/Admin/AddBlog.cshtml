@@ -1,0 +1,82 @@
+﻿@model EntityLayer.Concrete.Blog
+@{
+    ViewBag.Title = "AddBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AdminBlogList", "Admin",
+    new { ReturnUrl = Request.QueryString["ReturnUrl"] },
+    FormMethod.Post,
+    new { @class = "form-signin" }
+    ))
+{
+
+    
+    <h2 class="form-signin-heading">Blog Oluştur</h2>
+    <div class="form-group mb-3">
+                   
+        @Html.LabelFor(m => m.BlogTitle, "Blog Başlığı", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.BlogTitle, new
+        {
+            @class = "form-control",
+            placeholder = "Blog Başlığı",
+            autofocus = ""
+        })
+                    
+
+    </div>
+    <div class="form-group mb-3">
+                    
+        @Html.LabelFor(m=>m.CategoryId,"Katagori",new{@class="control-label"})
+        @Html.TextBoxFor(m=>m.CategoryId,new
+        {
+            @class="form-control",
+            placeholder="Katagori id",
+            autofocus=""
+        })
+    </div>
+    <div class="form-group mb-3">
+                 
+        @Html.LabelFor(m=>m.BlogImage,"Resim Yolu",new{@class="control-label"})
+        @Html.TextBoxFor(m=>m.BlogImage,new
+        {
+            @class="form-control",
+            placeholder="Resim Yolu",
+            autofocus=""
+        })
+    </div>
+    <div class="form-group mb-3">
+             
+        @Html.LabelFor(m=>m.CreatedTime,"Tarih",new{@class="control-label"})
+        @Html.TextBoxFor(m=>m.CreatedTime,new
+        {
+            @class="form-control",
+            placeholder="Tarih",
+            autofocus=""
+        })
+    </div>
+    <div class="form-group mb-3">
+          
+        @Html.LabelFor(m=>m.AuthorId,"Yazar id",new{@class="control-label"})
+        @Html.TextBoxFor(m=>m.AuthorId,new
+        {
+            @class="form-control",
+            placeholder="Yazar id",
+            autofocus=""
+        })
+    </div>
+    <div class="form-group mb-3">
+      
+        @Html.LabelFor(m=>m.BlogContent,"İçerik",new{@class="control-label"})
+        @Html.TextAreaFor(m=>m.BlogContent,5,20,new
+        {
+            @class="form-control",
+            placeholder="İçerik",
+            autofocus=""
+        })
+    </div>
+    
+    <button class="btn btn-lg btn-primary" type="submit">Ekle</button>
+
+}
+

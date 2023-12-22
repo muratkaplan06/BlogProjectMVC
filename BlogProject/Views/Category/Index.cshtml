@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Category>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+
+</head>
+<body>
+    <div>
+        <h2>Burasi Index</h2>
+        <br />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Category Name</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.CategoryId</th>
+                        <td>@item.CategoryName</td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+</body>
+<script src="~/Scripts/bootstrap.js"></script>
+</html>
